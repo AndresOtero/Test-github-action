@@ -27,7 +27,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           cd test
-          echo "TEST_ENV=$(python3 -c "import version; print(version.__version__)")" >> $GITHUB_ENV
+          echo "TEST_ENV="test-$(python3 -c "import version; print(version.__version__)")"" >> $GITHUB_ENV
+          cd ..
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
