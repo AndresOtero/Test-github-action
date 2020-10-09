@@ -37,7 +37,7 @@ jobs:
       
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        run: echo ::set-output name=VERSION::test/${GITHUB_REF/refs\/tags\//}
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
