@@ -1,0 +1,10 @@
+#! /bin/bash
+
+cd test
+version="$(python3 -c "import version; print(version.__version__)")"
+latest_tag="$(git describe --abbrev=0 --tags )"
+
+if [ "$version" != "$latest_tag" ]; then
+    git tag -a "$version" -m "`git log -1 --format=%s`"
+    echo "Created a new tag, v$version"
+fi
